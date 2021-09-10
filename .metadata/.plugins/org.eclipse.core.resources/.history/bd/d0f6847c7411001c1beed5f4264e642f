@@ -1,0 +1,9 @@
+package begruessung.commons;
+
+public class UngueltigenNameException extends Exception {
+	
+	public UngueltigenNameException(final String msg) {
+		super(msg);
+	}
+
+}

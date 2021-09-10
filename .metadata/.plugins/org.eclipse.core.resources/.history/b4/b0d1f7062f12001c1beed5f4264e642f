@@ -1,0 +1,8 @@
+package ja8.springboot.example.springdemo;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ServiceEins {
+
+}

@@ -1,0 +1,21 @@
+package restaurants.util;
+
+import java.util.ArrayList;
+
+import com.github.javafaker.Faker;
+
+import restaurants.model.Gericht;
+import restaurants.model.MenuKarte;
+
+public class MenuKarteRandomGeneratorUtil {
+	
+	public MenuKarte erzeuge(final int maxAnzahlGerichte) {
+		ArrayList<Gericht> gerichte = new ArrayList<>(maxAnzahlGerichte);
+		Faker faker = new Faker();
+		for(int i = 0; i < maxAnzahlGerichte; i++) {
+			gerichte.add(new Gericht(faker.food().dish(), faker.commerce().price(6.0d, 20.0d)))
+		}
+		return new MenuKarte(gerichte);
+	}
+
+}

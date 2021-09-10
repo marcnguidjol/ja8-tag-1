@@ -1,0 +1,5 @@
+package restaurants.dao;
+
+public class RestaurantRepository {
+
+}

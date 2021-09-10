@@ -1,0 +1,5 @@
+package begruessung.commons;
+
+public class UngueltigenNameException extends Exception {
+
+}

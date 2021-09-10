@@ -1,0 +1,23 @@
+package restaurants.model;
+
+import java.util.List;
+
+public class Bestellung {
+
+	private List<Gericht> auswahl;
+	private double gesamtPreis;
+	
+	public List<Gericht> getAuswahl() {
+		return auswahl;
+	}
+	public void setAuswahl(List<Gericht> auswahl) {
+		this.auswahl = auswahl;
+	}
+	
+	public double getGesamtPreis() {
+		return gesamtPreis;
+	}
+	
+	
+
+}

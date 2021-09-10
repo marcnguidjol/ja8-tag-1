@@ -1,0 +1,53 @@
+package begruessung.model;
+
+/**
+ * Model TeilnehmerIn
+ * 
+ * @author Training
+ *
+ */
+public class TeilnehmerIn {
+
+	private Anrede anrede;
+	private Titel titel;
+	private Vorname vorname;
+	private Name name;
+
+	public Anrede getAnrede() {
+		return anrede;
+	}
+
+	public void setAnrede(Anrede anrede) {
+		this.anrede = anrede;
+	}
+
+	public Titel getTitel() {
+		return titel;
+	}
+
+	public void setTitel(Titel titel) {
+		this.titel = titel;
+	}
+
+	public Vorname getVorname() {
+		return vorname;
+	}
+
+	public void setVorname(Vorname vorname) {
+		this.vorname = vorname;
+	}
+
+	public Name getName() {
+		return name;
+	}
+
+	public void setName(Name name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "TeilnehmerIn [anrede=" + anrede + ", titel=" + titel + ", vorname=" + vorname + ", name=" + name + "]";
+	}
+
+}

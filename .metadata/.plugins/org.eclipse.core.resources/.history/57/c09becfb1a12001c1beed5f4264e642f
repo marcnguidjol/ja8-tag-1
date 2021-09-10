@@ -1,0 +1,19 @@
+package restaurants.service;
+
+import restaurants.model.Bestellung;
+import restaurants.model.Restaurant;
+
+public class BestellService {
+
+	public double bestelle(final Restaurant restaurant, final Bestellung bestellung) {
+		if(null == restaurant || null == bestellung) {
+			return 0.0;
+		}
+		double betrag = 0.0;
+		bestellung.getAuswahl().stream()
+		.forEach(g -> { betrag += g.getPreis(); });
+		
+		return betrag;
+	}
+
+}

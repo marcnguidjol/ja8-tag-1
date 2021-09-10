@@ -1,0 +1,58 @@
+package restaurants.model;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class Anschrift {
+
+	static class AnschriftBuilder {
+
+		private String strasse;
+		private String hnr;
+		private String stadtTeil;
+		private String plz;
+		private String ort;
+		private String landIsoCode;
+
+		AnschriftBuilder self() {
+			this.landIsoCode = "DE";
+			return this;
+		}
+
+		AnschriftBuilder strasse(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				this.strasse = str;
+			}
+			return this;
+		}
+		
+		AnschriftBuilder hnr(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				this.strasse = str;
+			}
+			return this;
+		}
+		
+		AnschriftBuilder stadtTeil(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				this.strasse = str;
+			}
+			return this;
+		}
+		
+		AnschriftBuilder plz(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				this.strasse = str;
+			}
+			return this;
+		}
+		
+		AnschriftBuilder ort(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				this.strasse = str;
+			}
+			return this;
+		}
+
+	}
+
+}

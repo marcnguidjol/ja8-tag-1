@@ -1,0 +1,16 @@
+package begruessung;
+
+public class StartBegruessung {
+
+	static final String MORGIGE_BEGRUESSUNG = "Guten Morgen";
+	static final String TAGSUEBER_BEGRUESSUNG = "Guten Tag";
+	static final String ABENDS_BEGRUESSUNG = "Guten Abend";
+	
+	public static void main(String[] args) {
+		
+		BegruessungService begruessungService = new BegruessungService();
+		begruessungService.begruesseTN("", null);
+
+	}
+
+}

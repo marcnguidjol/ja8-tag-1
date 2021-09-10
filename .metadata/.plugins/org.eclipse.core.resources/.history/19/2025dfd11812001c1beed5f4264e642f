@@ -1,0 +1,11 @@
+package restaurants.model;
+
+import java.util.List;
+
+public class Gericht {
+	
+	private String bezeichnung;
+	private List<String> zutaten;
+	private double preis;
+
+}

@@ -1,0 +1,24 @@
+package restaurants.model;
+
+public class Anschrift {
+	
+	String strasse;
+	private String hnr;
+	private String stadtTeil;
+	private String plz;
+	private String ort;
+	private String landIsoCode;
+	
+	static class AnschriftBuilder {
+		
+		AnschriftBuilder self() {
+			return this;
+		} 
+		
+		AnschriftBuilder strasse(final String str) {
+			this.
+		}
+		
+	}
+
+}

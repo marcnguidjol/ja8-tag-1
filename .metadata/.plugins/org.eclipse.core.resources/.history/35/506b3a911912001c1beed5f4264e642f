@@ -1,0 +1,15 @@
+package restaurants.service;
+
+
+import java.util.List;
+
+import restaurants.model.Bestellung;
+import restaurants.model.Restaurant;
+
+public class BestellService {
+	
+	public double bestelle(final Restaurant restaurant, final List<Bestellung> menus) {
+		return 0.0;
+	}
+
+}

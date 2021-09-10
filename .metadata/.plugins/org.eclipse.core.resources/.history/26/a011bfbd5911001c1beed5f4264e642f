@@ -1,0 +1,56 @@
+package begruessung;
+
+import begruessung.model.Anrede;
+import begruessung.model.Name;
+import begruessung.model.TeilnehmerIn;
+import begruessung.model.Vorname;
+
+/**
+ * Begruessung aller ankommenden TN im Seminar
+ * @author Training
+ *
+ */
+public class BegruessungService {
+
+	private static final String KOMMA = ",";
+	private static final String LEERZEICHEN = "";
+
+	public void begruesseTN(final String begruessungsformel, final TeilnehmerIn teilnehmerIn) {
+		 //Validation
+		 if(null == teilnehmerIn)
+			 return;
+		
+		 StringBuilder stringBuilder = new StringBuilder();
+		 
+		 Anrede anrede = teilnehmerIn.getAnrede();
+		 if(null != anrede) {
+			 if(!anrede.equals(Anrede.KEINE) 
+					 || !anrede.equals(Anrede.UNBEKANNT)) {
+				 stringBuilder.append(anrede.name());
+				 stringBuilder.append(LEERZEICHEN);
+			 } 
+		 }
+		 
+		 Vorname vorname = teilnehmerIn.getVorname();
+		 if(null != vorname) {
+			final String vorName = vorname.getVorName();
+			if(null != vorName 
+					 && vorName.trim().length() > 0) {
+				 stringBuilder.append(vorName);
+				 stringBuilder.append(KOMMA);
+			 }
+		 }
+		 
+		 Name name = teilnehmerIn.getName();
+		 if(null != name) {
+			 final String familienName = name.getFamilienName();
+			 if(null != familienName 
+					 && familienName.trim().length() > 0) {
+				 stringBuilder.append(familienName);
+			 }
+		 }
+		 
+		 System.out.println(begruessungsformel + " " + teilnehmerIn.getAnrede() + teilnehmerIn.getName().getFamilienName());
+	 }
+	
+}

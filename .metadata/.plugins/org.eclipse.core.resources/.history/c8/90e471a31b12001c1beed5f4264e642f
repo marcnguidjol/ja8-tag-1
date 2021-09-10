@@ -1,0 +1,23 @@
+package restaurants.service;
+
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import restaurants.model.Bestellung;
+import restaurants.model.Gericht;
+import restaurants.model.Restaurant;
+
+public class BestellService {
+
+	public double bestelle(final Restaurant restaurant, final Bestellung bestellung) {
+		if (null == restaurant || null == bestellung) {
+			return 0.0;
+		}
+		final double betrag = 
+				bestellung.getAuswahl()
+				.stream()
+				.collect(Collectors.summingDouble(Gericht::getPreis));
+		return betrag;
+	}
+
+}

@@ -1,0 +1,12 @@
+package begruessung;
+
+public class StartBegruessung {
+
+	public static void main(String[] args) {
+		
+		BegruessungService begruessungService = new BegruessungService();
+		begruessungService.begruesseTN("", null);
+
+	}
+
+}

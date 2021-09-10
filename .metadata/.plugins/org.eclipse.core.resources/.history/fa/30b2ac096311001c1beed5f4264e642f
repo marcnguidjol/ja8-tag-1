@@ -1,0 +1,44 @@
+package begruessung;
+
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.HashMap;
+
+import begruessung.model.Anrede;
+import begruessung.model.Name;
+import begruessung.model.TeilnehmerIn;
+import begruessung.model.Vorname;
+
+public class StartBegruessung {
+
+	static final String MORGIGE_BEGRUESSUNG = "Guten Morgen";
+	static final String TAGSUEBER_BEGRUESSUNG = "Guten Tag";
+	static final String ABENDS_BEGRUESSUNG = "Guten Abend";
+
+	public static void main(String[] args) {
+
+		BegruessungService begruessungService = new BegruessungService();
+
+		final String begruessungsformel = findeRichtigeBegruessungAbhVonUhrzeit();
+		final TeilnehmerIn teilnehmerInMaria = 
+				new TeilnehmerIn(Anrede.FRAU, new Vorname("Anne-Marie"), new Name("Musterfrau"));
+		final TeilnehmerIn teilnehmerInMitUngueltigenVorname = 
+				new TeilnehmerIn(new Vorname("x"), new Name("Mustermann"));
+		
+//		begruessungService.begruesseTN(begruessungsformel, teilnehmerInMaria);
+		
+		Map<String, TeilnehmerIn> teilnehmerInMap = new HashMap<>();
+		begruessungService.begruesseAlleTN(teilnehmerInMap);
+
+	}
+
+	private static String findeRichtigeBegruessungAbhVonUhrzeit() {
+		int aktuelleTagesUhrzeit = LocalDateTime.now().getHour();
+		if (aktuelleTagesUhrzeit >= 6 && aktuelleTagesUhrzeit < 12)
+			return MORGIGE_BEGRUESSUNG;
+		if (aktuelleTagesUhrzeit >= 12 && aktuelleTagesUhrzeit <= 18)
+			return TAGSUEBER_BEGRUESSUNG;
+		return ABENDS_BEGRUESSUNG;
+	}
+
+}

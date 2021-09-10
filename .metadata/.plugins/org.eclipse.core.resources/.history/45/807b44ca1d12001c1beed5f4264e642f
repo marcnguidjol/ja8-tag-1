@@ -1,0 +1,15 @@
+package restaurants.util;
+
+import java.util.ArrayList;
+
+import restaurants.model.Gericht;
+import restaurants.model.MenuKarte;
+
+public class MenuKarteRandomGeneratorUtil {
+	
+	public MenuKarte erzeuge(final int maxAnzahlGerichte) {
+		ArrayList<Gericht> gerichte = new ArrayList<>(maxAnzahlGerichte);
+		return new MenuKarte(null);
+	}
+
+}

@@ -1,0 +1,5 @@
+package begruessung.model;
+
+public class Vorname {
+
+}

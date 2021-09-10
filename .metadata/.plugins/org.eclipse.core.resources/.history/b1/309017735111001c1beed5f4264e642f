@@ -1,0 +1,16 @@
+package begruessung.model;
+
+/**
+ * Model TeilnehmerIn
+ * @author Training
+ *
+ */
+public class TeilnehmerIn {
+	
+	private Anrede anrede;
+	private Titel titel;
+	private Vorname vorname;
+	private Name name;
+	
+
+}

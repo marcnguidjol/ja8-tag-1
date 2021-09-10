@@ -1,0 +1,11 @@
+package restaurants.dao;
+
+import java.util.List;
+
+import restaurants.model.Restaurant;
+
+public class RestaurantRepository {
+	
+	private List<Restaurant> lieferServices;
+
+}

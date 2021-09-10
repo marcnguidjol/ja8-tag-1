@@ -1,0 +1,31 @@
+package begruessung;
+
+import begruessung.model.Anrede;
+import begruessung.model.TeilnehmerIn;
+
+/**
+ * Begruessung aller ankommenden TN im Seminar
+ * @author Training
+ *
+ */
+public class BegruessungService {
+
+	 public void begruesseTN(final String begruessungsformel, final TeilnehmerIn teilnehmerIn) {
+		 //Validation
+		 if(null == teilnehmerIn)
+			 return;
+		
+		 StringBuilder stringBuilder = new StringBuilder();
+		 
+		 Anrede anrede = teilnehmerIn.getAnrede();
+		 if(null != anrede) {
+			 if(!anrede.equals(Anrede.KEINE) 
+					 || !anrede.equals(Anrede.UNBEKANNT)) {
+				 stringBuilder.append(anrede.name());
+			 } 
+		 }
+		 
+		 System.out.println(begruessungsformel + " " + teilnehmerIn.getAnrede() + teilnehmerIn.getName().getFamilienName());
+	 }
+	
+}

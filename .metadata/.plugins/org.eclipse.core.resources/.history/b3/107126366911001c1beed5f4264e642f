@@ -1,0 +1,10 @@
+package begruessung.model;
+
+public enum Anrede {
+	
+	FRAU,
+	HERR,
+	KEINE,
+	UNBEKANNT;
+
+}

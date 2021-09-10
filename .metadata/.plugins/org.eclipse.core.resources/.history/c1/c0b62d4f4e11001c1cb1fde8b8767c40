@@ -1,0 +1,11 @@
+package begruessung.model;
+
+/**
+ * Model Struktur fuer Vornamen.
+ * - Min. 2 und max. 256
+ * @author Training
+ *
+ */
+public class Vorname {
+
+}

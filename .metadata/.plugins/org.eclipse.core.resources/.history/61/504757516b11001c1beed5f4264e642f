@@ -1,0 +1,5 @@
+package teilnehmer.model;
+
+public class TeilnehmerInBuilder {
+
+}

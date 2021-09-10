@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;ja8-teilnehmer-verwaltung&apos;&#x0D;&#x0A;- Original project: &apos;ja8-teilnehmer-verwaltung&apos;&#x0D;&#x0A;- Original element: &apos;ja8-20210909-libs.jar&apos;" description="Delete element" element1="lib/ja8-20210909-libs.jar" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1631254772704" subPackages="false" version="1.0"/>
+</session>

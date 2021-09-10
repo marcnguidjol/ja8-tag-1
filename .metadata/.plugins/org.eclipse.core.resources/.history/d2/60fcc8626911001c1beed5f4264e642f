@@ -1,0 +1,10 @@
+package teilnehmer.service;
+
+/**
+ * Service Klasse zur Verwaltung von TNs.
+ * @author Training
+ *
+ */
+public class TeilnehmerService {
+
+}

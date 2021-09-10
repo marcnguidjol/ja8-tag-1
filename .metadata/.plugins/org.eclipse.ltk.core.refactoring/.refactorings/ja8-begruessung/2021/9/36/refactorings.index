@@ -1,0 +1,14 @@
+1631183339602	Extract local variable 'vorName'
+1631183383933	Extract constant 'LEERZEICHEN'
+1631183587095	Extract constant 'KOMMA'
+1631183979037	Extract method 'aktualisiereMitAnrede'
+1631184013119	Extract method 'aktualisiereMitVorname'
+1631184037182	Extract method 'aktualisiereMitName'
+1631189531228	Delete element
+1631189619619	Delete elements
+1631190412108	Copy compilation units
+1631191013454	Delete elements
+1631191017836	Delete element
+1631192539207	Move compilation unit
+1631192571255	Delete elements
+1631194094067	Move member 'findeRichtigeBegruessungAbhVonUhrzeit2'

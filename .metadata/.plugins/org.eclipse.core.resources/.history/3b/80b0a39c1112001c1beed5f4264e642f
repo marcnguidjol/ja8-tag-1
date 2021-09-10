@@ -1,0 +1,14 @@
+package restaurants.model;
+
+public class Anschrift {
+	
+	private String strasse;
+	private String hnr;
+	private String stadtTeil;
+	private String plz;
+	private String ort;
+	private String landIsoCode;
+	
+	
+
+}

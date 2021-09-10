@@ -1,0 +1,27 @@
+package restaurants.model;
+
+public class Restaurant {
+	
+	private String name;
+	private Anschrift adresse;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Anschrift getAdresse() {
+		return adresse;
+	}
+	public void setAdresse(Anschrift adresse) {
+		this.adresse = adresse;
+	}
+	@Override
+	public String toString() {
+		return "Restaurant [name=" + name + ", adresse=" + adresse + "]";
+	}
+	
+	
+
+}

@@ -1,0 +1,49 @@
+package begruessung;
+
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+
+import begruessung.service.BegruessungService;
+import teilnehmer.model.Anrede;
+import teilnehmer.model.Name;
+import teilnehmer.model.TeilnehmerIn;
+import teilnehmer.model.Vorname;
+import teilnehmer.service.TeilnehmerService;
+
+
+public class StartBegruessung {
+
+	static final String MORGIGE_BEGRUESSUNG = "Guten Morgen";
+	static final String TAGSUEBER_BEGRUESSUNG = "Guten Tag";
+	static final String ABENDS_BEGRUESSUNG = "Guten Abend";
+
+	public static void main(String[] args) {
+
+		BegruessungService begruessungService = new BegruessungService();
+		final String begruessungsformel = findeRichtigeBegruessungAbhVonUhrzeit();
+		
+		TeilnehmerService teilnehmerService = new TeilnehmerService();
+		final TeilnehmerIn teilnehmerInMaria = 
+				teilnehmerService.neuerTn(Anrede.FRAU, null, new Vorname("Anne-Marie"), new Name("Musterfrau"));
+		final TeilnehmerIn teilnehmerInMitUngueltigenVorname = 
+				teilnehmerService.neuerTn(null, null, new Vorname("x"), new Name("Mustermann"));
+				
+		Map<TeilnehmerIn, String> teilnehmerInMap = new HashMap<>();
+		teilnehmerInMap.put(teilnehmerInMaria, begruessungsformel);
+		teilnehmerInMap.put(teilnehmerInMitUngueltigenVorname, begruessungsformel);
+		
+		begruessungService.begruesseAlleTN(teilnehmerInMap);
+
+	}
+
+	private static String findeRichtigeBegruessungAbhVonUhrzeit() {
+		int aktuelleTagesUhrzeit = LocalDateTime.now().getHour();
+		if (aktuelleTagesUhrzeit >= 6 && aktuelleTagesUhrzeit < 12)
+			return MORGIGE_BEGRUESSUNG;
+		if (aktuelleTagesUhrzeit >= 12 && aktuelleTagesUhrzeit <= 18)
+			return TAGSUEBER_BEGRUESSUNG;
+		return ABENDS_BEGRUESSUNG;
+	}
+
+}

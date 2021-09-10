@@ -1,0 +1,22 @@
+package ja8.springboot.example.springdemo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
+@org.springframework.web.bind.annotation.RestController
+@Slf4j
+public class RestController {
+
+	@Autowired
+	ServiceZwei serviceZwei;
+	
+	@GetMapping("/test")
+	public ResponseEntity<String> hello(){
+		logger.info("---");
+		return ResponseEntity.ok(this.serviceZwei.callService());
+	}
+	
+}

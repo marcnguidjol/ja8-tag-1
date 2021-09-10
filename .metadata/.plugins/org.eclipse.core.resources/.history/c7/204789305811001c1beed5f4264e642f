@@ -1,0 +1,16 @@
+package begruessung;
+
+import begruessung.model.TeilnehmerIn;
+
+/**
+ * Begruessung aller ankommenden TN im Seminar
+ * @author Training
+ *
+ */
+public class BegruessungService {
+
+	 public void begruesseTN(final String begruessungsformel, final TeilnehmerIn teilnehmerIn) {
+		 System.out.println(begruessungsformel + " " + teilnehmerIn.getName().getFamilienName());
+	 }
+	
+}

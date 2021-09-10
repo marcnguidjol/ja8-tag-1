@@ -1,0 +1,65 @@
+package teilnehmer.model;
+
+import org.apache.commons.lang3.StringUtils;
+
+/**
+ * Builder Pattern
+ * @author Training
+ *
+ */
+public class TeilnehmerInBuilder {
+	
+	private TeilnehmerIn teilnehmerIn;
+	
+	static TeilnehmerInBuilder instance() {
+		return new TeilnehmerInBuilder();
+	}
+	
+	//Wichtig fuer Builder-Klassen!
+	private TeilnehmerInBuilder() {
+		this.teilnehmerIn = new TeilnehmerIn();
+	}
+	
+	TeilnehmerInBuilder withAnrede(final Anrede anrede) {
+		if(null != anrede) {
+			if(!anrede.equals(Anrede.KEINE) 
+					&& !anrede.equals(Anrede.UNBEKANNT)) {
+				this.teilnehmerIn.setAnrede(anrede);	
+			}
+		}
+		return this;
+	}
+	
+	TeilnehmerInBuilder withTitel(final Titel titel) {
+		if(null != titel) {
+			this.teilnehmerIn.setTitel(titel);
+		}
+		return this;
+	}
+	
+	TeilnehmerInBuilder withVorname(final Vorname vorname) {
+		if(null != vorname) {
+			String vorName = vorname.getVorName();
+			if(StringUtils.isNotEmpty(vorName)) {
+				vorName = StringUtils.trim(vorName);
+				if(StringUtils.length(vorName) > 2 
+						&& StringUtils.length(vorName) < 120) {
+					this.teilnehmerIn.setVorname(vorname);
+				}
+			}
+		}
+		return this;
+	}
+	
+	TeilnehmerInBuilder withTitel(final Titel titel) {
+		if(null != titel) {
+			this.teilnehmerIn.setTitel(titel);
+		}
+		return this;
+	}
+	
+	TeilnehmerIn build() {
+		return this.teilnehmerIn;
+	}
+
+}

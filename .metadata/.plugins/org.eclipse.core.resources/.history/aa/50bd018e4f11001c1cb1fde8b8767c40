@@ -1,0 +1,10 @@
+package begruessung;
+
+/**
+ * Begruessung aller ankommenden TN im Seminar
+ * @author Training
+ *
+ */
+public class BegruessungService {
+
+}

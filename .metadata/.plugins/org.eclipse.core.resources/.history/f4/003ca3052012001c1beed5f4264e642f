@@ -1,0 +1,29 @@
+package office;
+
+import java.util.List;
+import java.util.Random;
+
+import restaurants.dao.RestaurantRepository;
+import restaurants.model.Bestellung;
+import restaurants.model.Restaurant;
+import restaurants.service.BestellService;
+
+public class OfficeMain {
+
+	public static void main(String[] args) {
+		
+		RestaurantRepository restaurantRepository = new RestaurantRepository();
+		restaurantRepository.addRestaurant("ja8-tkcs-restaurant", "Gropiusstrasse", "7", null, "12345", "Muenster");
+		
+		List<Restaurant> lieferServices = restaurantRepository.getLieferServices();
+		
+		BestellService bestellService = new BestellService();
+		Restaurant auswahl = lieferServices.get(new Random().nextInt(lieferServices.size()));
+		
+		Bestellung bestellung = new Bestellung();
+		
+		bestellService.bestelle(auswahl, bestellung);
+		
+	}
+
+}

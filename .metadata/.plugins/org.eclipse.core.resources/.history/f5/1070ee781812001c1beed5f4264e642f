@@ -1,0 +1,11 @@
+package restaurants.model;
+
+import java.util.List;
+
+public class MenuKarte {
+	
+	private List<Gericht> menues;
+	
+	
+
+}

@@ -1,0 +1,68 @@
+package restaurants.model;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class Anschrift {
+
+	private static AnschriftBuilder builder;
+	
+	public Anschrift() {
+		builder = new AnschriftBuilder();
+	}
+
+	class AnschriftBuilder {
+
+		private String strasse;
+		private String hnr;
+		private String stadtTeil;
+		private String plz;
+		private String ort;
+		private String landIsoCode;
+
+		AnschriftBuilder self() {
+			this.landIsoCode = "DE";
+			return this;
+		}
+
+		AnschriftBuilder strasse(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				this.strasse = str;
+			}
+			return this;
+		}
+
+		AnschriftBuilder hnr(final String hnr) {
+			if (StringUtils.isNotEmpty(hnr) && !StringUtils.isAlpha(hnr) && StringUtils.length(hnr) < 5) {
+				this.hnr = hnr;
+			}
+			return this;
+		}
+
+		AnschriftBuilder stadtTeil(final String stadtTeil) {
+			if (StringUtils.isNotEmpty(stadtTeil)) {
+				this.stadtTeil = stadtTeil;
+			}
+			return this;
+		}
+
+		AnschriftBuilder plz(final String plz) {
+			if (StringUtils.isNotEmpty(plz) && StringUtils.isNumeric(plz) && StringUtils.length(plz) == 5) {
+				this.plz = plz;
+			}
+			return this;
+		}
+
+		AnschriftBuilder ort(final String ort) {
+			if (StringUtils.isNotEmpty(ort) && StringUtils.length(ort) < 120) {
+				this.ort = ort;
+			}
+			return this;
+		}
+
+		Anschrift build() {
+			return new Anschrift();
+		}
+
+	}
+
+}

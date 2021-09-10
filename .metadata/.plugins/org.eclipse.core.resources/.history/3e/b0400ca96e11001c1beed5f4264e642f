@@ -1,0 +1,80 @@
+package begruessung.service;
+
+import java.util.Map;
+
+import org.apache.commons.collections4.CollectionUtils;
+
+
+/**
+ * Begruessung aller ankommenden TN im Seminar
+ * 
+ * @author Training
+ *
+ */
+public class BegruessungService {
+
+	private static final String KOMMA = ",";
+	private static final String LEERZEICHEN = " ";
+
+	public void begruesseAlleTN(final Map<TeilnehmerIn, String> teilnehmerInMap) {
+
+		if (null != teilnehmerInMap 
+				&& CollectionUtils.isNotEmpty(teilnehmerInMap.values())) {
+			teilnehmerInMap.forEach((k, v) -> {
+				StringBuilder stringBuilder = new StringBuilder();
+				aktualisiereMitAnrede(k, stringBuilder);
+				aktualisiereMitVorname(k, stringBuilder);
+				aktualisiereMitName(k, stringBuilder);
+
+				System.out.println(v + LEERZEICHEN + stringBuilder.toString());
+			});
+		}
+
+	}
+
+	public void begruesseTN(final String begruessungsformel, final TeilnehmerIn teilnehmerIn) {
+		// Validation
+		if (null == teilnehmerIn)
+			return;
+
+		StringBuilder stringBuilder = new StringBuilder();
+		aktualisiereMitAnrede(teilnehmerIn, stringBuilder);
+		aktualisiereMitVorname(teilnehmerIn, stringBuilder);
+		aktualisiereMitName(teilnehmerIn, stringBuilder);
+
+		System.out.println(begruessungsformel + LEERZEICHEN + stringBuilder.toString());
+	}
+
+	private void aktualisiereMitName(final TeilnehmerIn teilnehmerIn, StringBuilder stringBuilder) {
+		Name name = teilnehmerIn.getName();
+		if (null != name) {
+			final String familienName = name.getFamilienName();
+			if (null != familienName && familienName.trim().length() > 0) {
+				stringBuilder.append(familienName);
+			}
+		}
+	}
+
+	private void aktualisiereMitVorname(final TeilnehmerIn teilnehmerIn, StringBuilder stringBuilder) {
+		Vorname vorname = teilnehmerIn.getVorname();
+		if (null != vorname) {
+			final String vorName = vorname.getVorName();
+			if (null != vorName && vorName.trim().length() > 0) {
+				stringBuilder.append(vorName);
+				stringBuilder.append(KOMMA);
+			}
+		}
+	}
+
+	private void aktualisiereMitAnrede(final TeilnehmerIn teilnehmerIn, StringBuilder stringBuilder) {
+		Anrede anrede = teilnehmerIn.getAnrede();
+		if (null != anrede) {
+			if (!anrede.equals(Anrede.KEINE) 
+					&& !anrede.equals(Anrede.UNBEKANNT)) {
+				stringBuilder.append(anrede.name());
+				stringBuilder.append(LEERZEICHEN);
+			}
+		}
+	}
+
+}

@@ -1,0 +1,35 @@
+package teilnehmer.model;
+
+/**
+ * Builder Pattern
+ * @author Training
+ *
+ */
+public class TeilnehmerInBuilder {
+	
+	private TeilnehmerIn teilnehmerIn;
+	
+	static TeilnehmerInBuilder instance() {
+		return new TeilnehmerInBuilder();
+	}
+	
+	//Wichtig fuer Builder-Klassen!
+	private TeilnehmerInBuilder() {
+		this.teilnehmerIn = new TeilnehmerIn();
+	}
+	
+	TeilnehmerInBuilder withAnrede(final Anrede anrede) {
+		if(null != anrede) {
+			if(!anrede.equals(Anrede.KEINE) 
+					&& !anrede.equals(Anrede.UNBEKANNT)) {
+				this.teilnehmerIn.setAnrede(anrede);	
+			}
+		}
+		return this;
+	}
+	
+	TeilnehmerIn build() {
+		return this.teilnehmerIn;
+	}
+
+}

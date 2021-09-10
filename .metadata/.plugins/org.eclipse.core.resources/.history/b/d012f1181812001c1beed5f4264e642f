@@ -1,0 +1,27 @@
+package restaurants.model;
+
+import java.util.List;
+
+public class Bestellung {
+
+	private String auswahl;
+	private double preis;
+	private List<String> sonderwuensche;
+
+	public String getAuswahl() {
+		return auswahl;
+	}
+
+	public void setAuswahl(String auswahl) {
+		this.auswahl = auswahl;
+	}
+
+	public double getPreis() {
+		return preis;
+	}
+
+	public List<String> getSonderwuensche() {
+		return sonderwuensche;
+	}
+
+}

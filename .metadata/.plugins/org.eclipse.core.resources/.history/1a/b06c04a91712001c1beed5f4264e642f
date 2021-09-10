@@ -1,0 +1,5 @@
+package restaurants.service;
+
+public class BestellService {
+
+}

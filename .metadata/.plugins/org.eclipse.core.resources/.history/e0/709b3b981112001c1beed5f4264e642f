@@ -1,0 +1,5 @@
+package restaurants.model;
+
+public class Anschrift {
+
+}

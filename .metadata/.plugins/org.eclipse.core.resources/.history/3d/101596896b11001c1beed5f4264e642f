@@ -1,0 +1,17 @@
+package teilnehmer.model;
+
+/**
+ * Builder Pattern
+ * @author Training
+ *
+ */
+public class TeilnehmerInBuilder {
+	
+	private TeilnehmerIn teilnehmerIn;
+	
+	TeilnehmerInBuilder withAnrede(final Anrede anrede) {
+		this.teilnehmerIn.setAnrede(anrede);
+		return this;
+	}
+
+}

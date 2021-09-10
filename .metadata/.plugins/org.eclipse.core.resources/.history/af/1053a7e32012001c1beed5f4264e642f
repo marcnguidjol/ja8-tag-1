@@ -1,0 +1,126 @@
+package restaurants.model;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class Anschrift {
+
+	public static AnschriftBuilder builder;
+
+	private String strasse;
+	private String hnr;
+	private String stadtTeil;
+	private String plz;
+	private String ort;
+	private String landIsoCode;
+
+	public class AnschriftBuilder {
+
+		private Anschrift anschrift;
+
+//		public static AnschriftBuilder self() {
+//			anschrift = new Anschrift();
+//			anschrift.setLandIsoCode("DE");
+//			return this;
+//		}
+
+		public AnschriftBuilder strasse(final String str) {
+			if (StringUtils.isNotEmpty(str) 
+					&& StringUtils.length(str) < 200) {
+				anschrift.setStrasse(str);
+			}
+			return this;
+		}
+
+		public AnschriftBuilder hnr(final String hnr) {
+			if (StringUtils.isNotEmpty(hnr) 
+					&& !StringUtils.isAlpha(hnr) 
+					&& StringUtils.length(hnr) < 5) {
+				anschrift.setHnr(hnr);
+			}
+			return this;
+		}
+
+		public AnschriftBuilder stadtTeil(final String stadtTeil) {
+			if (StringUtils.isNotEmpty(stadtTeil)) {
+				anschrift.setStadtTeil(stadtTeil);
+			}
+			return this;
+		}
+
+		public AnschriftBuilder plz(final String plz) {
+			if (StringUtils.isNotEmpty(plz) 
+					&& StringUtils.isNumeric(plz) 
+					&& StringUtils.length(plz) == 5) {
+				anschrift.setPlz(plz);
+			}
+			return this;
+		}
+
+		public AnschriftBuilder ort(final String ort) {
+			if (StringUtils.isNotEmpty(ort) && StringUtils.length(ort) < 120) {
+				anschrift.setOrt(ort);
+			}
+			return this;
+		}
+
+		public Anschrift build() {
+			return this.anschrift;
+		}
+
+	}
+
+	public String getStrasse() {
+		return strasse;
+	}
+
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
+
+	public String getHnr() {
+		return hnr;
+	}
+
+	public void setHnr(String hnr) {
+		this.hnr = hnr;
+	}
+
+	public String getStadtTeil() {
+		return stadtTeil;
+	}
+
+	public void setStadtTeil(String stadtTeil) {
+		this.stadtTeil = stadtTeil;
+	}
+
+	public String getPlz() {
+		return plz;
+	}
+
+	public void setPlz(String plz) {
+		this.plz = plz;
+	}
+
+	public String getOrt() {
+		return ort;
+	}
+
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
+
+	public String getLandIsoCode() {
+		return landIsoCode;
+	}
+
+	public void setLandIsoCode(String landIsoCode) {
+		this.landIsoCode = landIsoCode;
+	}
+
+	@Override
+	public String toString() {
+		return "Anschrift [strasse=" + strasse + ", hnr=" + hnr + ", stadtTeil=" + stadtTeil + ", plz=" + plz + ", ort="
+				+ ort + ", landIsoCode=" + landIsoCode + "]";
+	}
+
+}

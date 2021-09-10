@@ -1,0 +1,116 @@
+package restaurants.model;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class Anschrift {
+
+	private String strasse;
+	private String hnr;
+	private String stadtTeil;
+	private String plz;
+	private String ort;
+	private String landIsoCode;
+
+	public String getStrasse() {
+		return strasse;
+	}
+
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
+
+	public String getHnr() {
+		return hnr;
+	}
+
+	public void setHnr(String hnr) {
+		this.hnr = hnr;
+	}
+
+	public String getStadtTeil() {
+		return stadtTeil;
+	}
+
+	public void setStadtTeil(String stadtTeil) {
+		this.stadtTeil = stadtTeil;
+	}
+
+	public String getPlz() {
+		return plz;
+	}
+
+	public void setPlz(String plz) {
+		this.plz = plz;
+	}
+
+	public String getOrt() {
+		return ort;
+	}
+
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
+
+	public String getLandIsoCode() {
+		return landIsoCode;
+	}
+
+	public void setLandIsoCode(String landIsoCode) {
+		this.landIsoCode = landIsoCode;
+	}
+
+	class AnschriftBuilder {
+
+		private Anschrift anschrift;
+		
+		public AnschriftBuilder() {
+			anschrift = new Anschrift();
+		}
+		
+		AnschriftBuilder self() {
+			anschrift.setLandIsoCode("DE");
+			return this;
+		}
+
+		AnschriftBuilder strasse(final String str) {
+			if (StringUtils.isNotEmpty(str) && StringUtils.length(str) < 200) {
+				anschrift.setStrasse(str);
+			}
+			return this;
+		}
+
+		AnschriftBuilder hnr(final String hnr) {
+			if (StringUtils.isNotEmpty(hnr) && !StringUtils.isAlpha(hnr) && StringUtils.length(hnr) < 5) {
+				anschrift.setHnr(hnr);
+			}
+			return this;
+		}
+
+		AnschriftBuilder stadtTeil(final String stadtTeil) {
+			if (StringUtils.isNotEmpty(stadtTeil)) {
+				anschrift.setStadtTeil(stadtTeil);
+			}
+			return this;
+		}
+
+		AnschriftBuilder plz(final String plz) {
+			if (StringUtils.isNotEmpty(plz) && StringUtils.isNumeric(plz) && StringUtils.length(plz) == 5) {
+				anschrift.setPlz(plz);
+			}
+			return this;
+		}
+
+		AnschriftBuilder ort(final String ort) {
+			if (StringUtils.isNotEmpty(ort) && StringUtils.length(ort) < 120) {
+				anschrift.setOrt(ort);
+			}
+			return this;
+		}
+
+		Anschrift build() {
+			return this.anschrift;
+		}
+
+	}
+
+}

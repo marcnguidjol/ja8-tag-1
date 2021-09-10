@@ -1,0 +1,13 @@
+package restaurants.service;
+
+
+import restaurants.model.Bestellung;
+import restaurants.model.Restaurant;
+
+public class BestellService {
+	
+	public double bestelle(final Restaurant restaurant, final Bestellung bestellung) {
+		return 0.0;
+	}
+
+}

@@ -1,0 +1,10 @@
+package restaurants.model;
+
+public class Restaurant {
+	
+	private String name;
+	private Anschrift adresse;
+	
+	
+
+}

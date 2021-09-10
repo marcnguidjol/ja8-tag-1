@@ -1,0 +1,16 @@
+package restaurants.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import restaurants.model.Restaurant;
+
+public class RestaurantRepository {
+	
+	private List<Restaurant> lieferServices;
+	
+	public RestaurantRepository() {
+		this.lieferServices = new ArrayList<>();
+	}
+
+}
